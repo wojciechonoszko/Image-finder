@@ -1,16 +1,29 @@
 import {ButtonContainer} from './ButtonStyles';
 import PropTypes from 'prop-types';
 
-const Button = ({onClick}) => {
+export default function Button({ loadMoreClick }) {
     return (
-        <ButtonContainer type='button' onClick={onClick}>
+        <ButtonContainer type='button' onClick={() => loadMoreClick()}>
             Load more
         </ButtonContainer>
     );
-};
+}
 
 Button.propTypes = {
-    onClick: PropTypes.func.isRequired
+    loadMoreClick: PropTypes.func.isRequired,
 };
 
-export default Button;
+
+// const Button = ({onClick}) => {
+//     return (
+//         <ButtonContainer type='button' onClick={onClick}>
+//             Load more
+//         </ButtonContainer>
+//     );
+// };
+
+// Button.propTypes = {
+//     onClick: PropTypes.func.isRequired
+// };
+
+// export default Button;
