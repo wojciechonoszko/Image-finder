@@ -1,4 +1,6 @@
 import React from 'react';
+import { Notify } from "notiflix/build/notiflix-notify-aio";
+import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { useState, useEffect } from "react";
 import {MyLoader} from './components/loader/Loader';
 import {getImagesWithDelay} from './Api';
@@ -22,7 +24,7 @@ export default function App() {
             return;
         }
         setStatus("pending");
-        fetchGallery(inputQuerry, page)
+        getImagesWithDelay(inputQuerry, page)
             .then((data) => data.hits)
             .then((response) => {
                 if (response.length === 0) {
@@ -41,7 +43,7 @@ export default function App() {
             });
     }, [page, inputQuerry]);
 
-    const SubmitForm = (inputQuerry) => {
+    const onSubmitForm = (inputQuerry) => {
         setInputQuerry(inputQuerry);
         setGallery([]);
         setPage(1);
