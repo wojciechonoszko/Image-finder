@@ -1,10 +1,3 @@
-// import axios from 'axios';
-
-// const numPerPage = 12;
-// const apiKey = '26533156-9695e0ec144eb89afbc08934a';
-// const apiUrl = `https://pixabay.com/api/?key=${apiKey}&image_type=photo&orientation=horizontal&per_page=${numPerPage}`;
-
-// console.log(apiUrl);
 
 const BASE_URL = "https://pixabay.com/api/";
 const KEY = "24457858-4dedb210520a0a663e952c085";
@@ -21,6 +14,15 @@ export function fetchGallery(searchQuery, page) {
       return Promise.reject(new Error("Not found. Try to change name"));
     });
   }
+
+// import axios from 'axios';
+
+// const numPerPage = 12;
+// const apiKey = '26533156-9695e0ec144eb89afbc08934a';
+// const apiUrl = `https://pixabay.com/api/?key=${apiKey}&image_type=photo&orientation=horizontal&per_page=${numPerPage}`;
+
+// console.log(apiUrl);
+
 
 
 
