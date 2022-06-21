@@ -2,14 +2,14 @@ import React from 'react';
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { useState, useEffect } from "react";
-import {MyLoader} from './components/loader/Loader';
-import {getImagesWithDelay} from './Api';
+// import {MyLoader} from './components/loader/Loader';
+import {fetchGallery} from './Api';
 import Button from './components/button/Button';
 import ImageGallery from './components/imageGallery/ImageGallery';
 import Modal from './components/modal/Modal';
 import Searchbar from './components/searchbar/Searchbar';
 
-const apiDelay = 2000;
+//const apiDelay = 2000;
 
 export default function App() {
     const [inputQuerry, setInputQuerry] = useState("");
@@ -24,7 +24,7 @@ export default function App() {
             return;
         }
         setStatus("pending");
-        getImagesWithDelay(inputQuerry, page)
+        fetchGallery(inputQuerry, page)
             .then((data) => data.hits)
             .then((response) => {
                 if (response.length === 0) {
@@ -71,7 +71,7 @@ export default function App() {
                 onImageClick={FindmodalImg}
             />
                 
-                {status === "resolved" && <Button onClick={this.onBtnClick}></Button>}
+                {status === "resolved" && <Button onClick={buttonLoadMore}></Button>}
                 
                 {modal && <Modal closeModal={toggleModal} modalImg={modalImg} />}
             

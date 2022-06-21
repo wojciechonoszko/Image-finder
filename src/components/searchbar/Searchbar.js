@@ -37,7 +37,7 @@ export default function Searchbar({ onSubmit }) {
                 name="inputQuerry"
                 value={inputQuerry}
                 type="text"
-                autocomplete="off"
+                autoComplete="off"
                 autoFocus
                 placeholder="Search images and photos"
                 onChange={handleInput}
