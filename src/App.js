@@ -9,7 +9,7 @@ import ImageGallery from './components/imageGallery/ImageGallery';
 import Modal from './components/modal/Modal';
 import Searchbar from './components/searchbar/Searchbar';
 
-//const apiDelay = 2000;
+const apiDelay = 2000;
 
 export default function App() {
     const [inputQuerry, setInputQuerry] = useState("");
@@ -63,8 +63,8 @@ export default function App() {
     return (
         <>
             <Searchbar onSubmit={onSubmitForm}></Searchbar>
-            {status === "pending" && Loading.dots()}
-            {status === "resolved" && Loading.remove()}
+            {status === "pending" && Loading.pulse()}
+            {status === "resolved" && Loading.remove(apiDelay)}
             <ImageGallery
                 response={gallery}
                 toggleModal={toggleModal}

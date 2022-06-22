@@ -1,6 +1,6 @@
 
 const BASE_URL = "https://pixabay.com/api/";
-const KEY = "24457858-4dedb210520a0a663e952c085";
+const KEY = '26533156-9695e0ec144eb89afbc08934a';
 
 
 export function fetchGallery(searchQuery, page) {
