@@ -22,7 +22,7 @@ export default function Modal({ closeModal, modalImg }) {
     };
 
     const backDropClick = e => {
-        if (e.terget === e.currentTarget) {
+        if (e.target === e.currentTarget) {
             closeModal();
         }
     };
