@@ -20,6 +20,23 @@ export const SearchbarHeader = styled.header`
 background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79%);
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  .suggestions-frame {
+      position: absolute;
+      text-decoration: none;
+      top: 95%;
+ margin-top: 5px;
+    width: 442px;
+    height: auto;
+    background-color: white;
+    box-shadow: (0,0,0,0.35) 0px 5px 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 2;
+    color: black;
+    .SuggestionList {
+      text-decoration: none;
+    }
+    
 `;
 export const SearchForm = styled.form`
   display: flex;
@@ -82,4 +99,8 @@ export const SearchForm = styled.form`
 `;
 
 export const SuggestionsList = styled.ul`
+text-decoration: none;
+li {
+      text-decoration: none;
+    }
 `

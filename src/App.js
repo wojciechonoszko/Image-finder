@@ -3,13 +3,13 @@ import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { useState, useEffect } from "react";
 // import {MyLoader} from './components/loader/Loader';
-import {fetchGallery} from './Api';
+import { fetchGallery } from './Api';
 import Button from './components/button/Button';
 import ImageGallery from './components/imageGallery/ImageGallery';
 import Modal from './components/modal/Modal';
 import Searchbar from './components/searchbar/Searchbar';
 
-const apiDelay = 2000;
+const apiDelay = 1000;
 
 export default function App() {
     const [inputQuerry, setInputQuerry] = useState("");
@@ -62,7 +62,9 @@ export default function App() {
 
     return (
         <>
-            <Searchbar onSubmit={onSubmitForm}></Searchbar>
+            <Searchbar onSubmit={onSubmitForm}>
+                
+            </Searchbar>
             {status === "pending" && Loading.pulse()}
             {status === "resolved" && Loading.remove(apiDelay)}
             <ImageGallery
@@ -70,11 +72,11 @@ export default function App() {
                 toggleModal={toggleModal}
                 onImageClick={FindmodalImg}
             />
-                
-                {status === "resolved" && <Button onClick={buttonLoadMore}></Button>}
-                
-                {modal && <Modal closeModal={toggleModal} modalImg={modalImg} />}
-            
+
+            {status === "resolved" && <Button onClick={buttonLoadMore}></Button>}
+
+            {modal && <Modal closeModal={toggleModal} modalImg={modalImg} />}
+
         </>
     );
 }
