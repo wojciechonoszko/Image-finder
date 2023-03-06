@@ -16,7 +16,8 @@ export const SearchbarHeader = styled.header`
   padding-top: 12px;
   padding-bottom: 12px;
   color: #fff;
-  background-color: #3f51b5;
+  background: rgb(233,219,222);
+background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79%);
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
 `;
@@ -26,13 +27,14 @@ export const SearchForm = styled.form`
   width: 100%;
   max-width: 600px;
   background-color: #fff;
-  border-radius: 3px;
+  border-radius: 10px;
   overflow: hidden;
   .SearchForm-button {
     display: inline-block;
     width: 48px;
     height: 48px;
     border: 0;
+    background-color: #e6dedb;
     background-image: url('https://cdn.svgapi.com/vector/8953/search.svg');
     background-size: 40%;
     background-repeat: no-repeat;
@@ -65,6 +67,9 @@ export const SearchForm = styled.form`
     outline: none;
     padding-left: 4px;
     padding-right: 4px;
+    width: 450px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .SearchForm-input::placeholder {
     font: inherit;
