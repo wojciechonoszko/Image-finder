@@ -8,9 +8,11 @@ import PropTypes from 'prop-types';
 export default function Searchbar({ onSubmit }) {
     const [inputQuerry, setInputQuerry] = useState("");
     
+
     const handleInput = e => {
         setInputQuerry(e.currentTarget.value.toLowerCase());
     };
+    
 
     const handleFormSubmit = e => {
         e.preventDefault();
@@ -26,6 +28,7 @@ export default function Searchbar({ onSubmit }) {
         onSubmit(inputQuerry);
         setInputQuerry("");
     };
+
 
     return (
         <SearchbarHeader>
@@ -43,6 +46,8 @@ export default function Searchbar({ onSubmit }) {
                 placeholder="Search images and photos"
                 onChange={handleInput}
                 />
+                
+
             </SearchForm>
         </SearchbarHeader>
     );
@@ -51,3 +56,5 @@ export default function Searchbar({ onSubmit }) {
 Searchbar.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 };
+
+

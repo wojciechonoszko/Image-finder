@@ -75,4 +75,11 @@ export const SearchForm = styled.form`
     font: inherit;
     font-size: 18px;
   }
+  .SearchForm-input-wrapper {
+    width: 100px;
+
+  }
 `;
+
+export const SuggestionsList = styled.ul`
+`
