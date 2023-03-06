@@ -10,7 +10,7 @@ export default function ImageGalleryItem({
 }) {
     return (
         <ImageGalleryItemContainer>
-            <img
+            <img className='ImageGalleryItem-image'
                 src={url}
                 alt={tag}
                 onClick={() => {

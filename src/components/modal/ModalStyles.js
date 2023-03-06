@@ -2,19 +2,21 @@ import styled from 'styled-components';
 
 export const Overlay = styled.div`
   position: fixed;
-  top: 20%;
-  left: 20%;
-  width: 500px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 700px;
+  height: 700px;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 1200;
+  z-index: 2;
   .Modal {
-    width: 450px;
-    height: 450px;
+    width: 90%;
     display: flex;
     justify-content: center;
     align-items: center;
   }
+  
 `;
