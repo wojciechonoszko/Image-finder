@@ -1,15 +1,14 @@
-import React from 'react';
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import axios from "axios";
 import { Notify } from "notiflix/build/notiflix-notify-aio";
-import { useState } from "react";
-import { SearchbarHeader, SearchForm } from './SearchbarStyles';
-import PropTypes from 'prop-types';
-import axios from 'axios';
+import { SearchbarHeader, SearchForm } from "./SearchbarStyles";
 
 function SuggestionList({ suggestions, onSuggestionClick }) {
     return (
-        <ul className='SuggestionList'>
+        <ul className="SuggestionList" >
             {suggestions.map((suggestion, index) => (
-                <li key={index} onClick={() => onSuggestionClick(suggestion)}>
+                <li className="SuggestionList__item" key={index} onClick={() => onSuggestionClick(suggestion)}>
                     {suggestion}
                 </li>
             ))}
@@ -17,15 +16,13 @@ function SuggestionList({ suggestions, onSuggestionClick }) {
     );
 }
 
-export default function Searchbar({ onSubmit }) {
+function Searchbar({ onSubmit }) {
     const [inputQuery, setInputQuery] = useState("");
     const [suggestions, setSuggestions] = useState([]);
 
     const getSuggestions = async (value) => {
         try {
-            const response = await axios.get(
-                `https://api.datamuse.com/sug?s=${value}`
-            );
+            const response = await axios.get(`https://api.datamuse.com/sug?s=${value}`);
             return response.data;
         } catch (error) {
             console.error(error);
@@ -93,3 +90,5 @@ export default function Searchbar({ onSubmit }) {
 Searchbar.propTypes = {
     onSubmit: PropTypes.func.isRequired,
 };
+
+export default Searchbar;

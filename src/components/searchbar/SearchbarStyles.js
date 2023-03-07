@@ -23,10 +23,13 @@ background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79
   .suggestions-frame {
       position: absolute;
       text-decoration: none;
-      top: 95%;
+      top: 85%;
  margin-top: 5px;
-    width: 442px;
+    width: 450px;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    
     background-color: white;
     box-shadow: (0,0,0,0.35) 0px 5px 15px;
     overflow: hidden;
@@ -34,7 +37,11 @@ background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79
     z-index: 2;
     color: black;
     .SuggestionList {
-      text-decoration: none;
+      list-style: none;
+    }
+    .SuggestionList__item:hover {
+      cursor: pointer;
+      color: #3f5efb;
     }
     
 `;
@@ -98,9 +105,13 @@ export const SearchForm = styled.form`
   }
 `;
 
-export const SuggestionsList = styled.ul`
-text-decoration: none;
+export const SuggestionList = styled.ul`
+list-style: none;
 li {
-      text-decoration: none;
+      list-style: none;
+
     }
+ul {
+  list-style: none;
+}
 `

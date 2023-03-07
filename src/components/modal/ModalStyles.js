@@ -18,5 +18,16 @@ export const Overlay = styled.div`
     justify-content: center;
     align-items: center;
   }
+  .CloseIcon {
+    color: #3f5efb;
+    position: absolute;
+    top: 82%;
+    cursor: pointer;
+    font-size: 40px;
+  }
+  .CloseIcon:hover {
+    border: 1px solid #3f5efb;
+    border-radius: 20px;
+  }
   
 `;

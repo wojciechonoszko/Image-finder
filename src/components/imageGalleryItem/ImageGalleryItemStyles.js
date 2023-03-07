@@ -19,4 +19,22 @@ export const ImageGalleryItemContainer = styled.li`
     transform: scale(1.03);
     cursor: zoom-in;
   }
+  .ImageStatisticsList {
+    margin-top: 4px;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-family: Tahoma, Geneva, sans-serif;
+font-size: 12px;
+letter-spacing: 2px;
+word-spacing: 2px;
+color: #000000;
+font-weight: 400;
+  }
+  .ImageStatisticsList__item {
+    text-align: center;
+  }
 `;

@@ -7,6 +7,10 @@ export default function ImageGalleryItem({
     tag,
     toggleModal,
     onImageClick,
+    likes,
+    views,
+    comments,
+    downloads
 }) {
     return (
         <ImageGalleryItemContainer>
@@ -18,6 +22,13 @@ export default function ImageGalleryItem({
                   onImageClick();
                 }}
             />
+            <ul className='ImageStatisticsList'>
+                <li className='ImageStatisticsList__item'><b>Likes</b> {likes}
+                </li>
+                <li className='ImageStatisticsList__item'><b>Views</b> {views}</li>
+                <li className='ImageStatisticsList__item'><b>Comments</b> {comments}</li>
+                <li className='ImageStatisticsList__item'><b>Downloads</b> {downloads}</li>
+            </ul>
         </ImageGalleryItemContainer>
     );
 }

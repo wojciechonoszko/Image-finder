@@ -10,7 +10,7 @@ export const ButtonContainer = styled.button`
   display: flex;
   justify-content: center;
   
-  margin: 20px auto 20px auto;
+  margin: 50px auto 20px auto;
   color: #fff;
   border: 0;
   text-decoration: none;

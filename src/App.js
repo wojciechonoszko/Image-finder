@@ -19,13 +19,27 @@ export default function App() {
     const [modalImg, setModalImg] = useState(null);
     const [modal, setModal] = useState(false);
 
+
     useEffect(() => {
         if (!inputQuerry) {
             return;
         }
         setStatus("pending");
         fetchGallery(inputQuerry, page)
-            .then((data) => data.hits)
+        .then((data) => {
+            console.log(data.total);
+            if (page === 1) {
+                Notify.success(`Hoorray! We found ${data.total} images`, {
+                    position: "center-center",
+                    fontSize: "24px",
+                    timeout: 2500,
+                    width: "30%",
+                });
+
+            }
+            return data.hits ;
+        })
+        
             .then((response) => {
                 if (response.length === 0) {
                     Notify.failure("Sorry, we couldn't find any matches", {
@@ -37,10 +51,12 @@ export default function App() {
                     setStatus("idle");
                     Loading.remove();
                 } else {
+                    
                     setGallery((prevState) => [...prevState, ...response]);
                     setStatus("resolved");
                 }
-            });
+            })
+            
     }, [page, inputQuerry]);
 
     const onSubmitForm = (inputQuerry) => {

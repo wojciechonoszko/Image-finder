@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import {Overlay} from './ModalStyles';
 import { createPortal } from "react-dom";
 import PropTypes from 'prop-types';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 const modalRoot = document.querySelector("#modal-root");
@@ -27,11 +28,16 @@ export default function Modal({ closeModal, modalImg }) {
         }
     };
 
+    const handleModalClose = () => {
+        closeModal();
+    }
+
     return createPortal(
         <Overlay onClick={backDropClick}>
             <div className="Modal">
                 <img src={img} alt={tags} key={id} />
             </div>
+            <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary"/>
         </Overlay>,
         modalRoot
     );
