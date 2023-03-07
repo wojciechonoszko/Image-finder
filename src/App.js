@@ -28,15 +28,15 @@ export default function App() {
         fetchGallery(inputQuerry, page)
         .then((data) => {
             console.log(data.total);
-            if (page === 1) {
-                Notify.success(`Hoorray! We found ${data.total} images`, {
+            
+                Notify.success(`Hoorray! Displaying ${18*page} out of ${data.total} images`, {
                     position: "center-center",
                     fontSize: "24px",
                     timeout: 2500,
                     width: "30%",
                 });
 
-            }
+            
             return data.hits ;
         })
         
