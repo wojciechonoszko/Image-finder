@@ -27,7 +27,7 @@ export default function App() {
         setStatus("pending");
         fetchGallery(inputQuerry, page)
         .then((data) => {
-            console.log(data.total);
+            console.log(data.hits[10].user);
             
                 Notify.success(`Hoorray! Displaying ${18*page} out of ${data.total} images`, {
                     position: "center-center",
@@ -68,8 +68,8 @@ export default function App() {
     const buttonLoadMore = () => {
         setPage(page + 1);
     };
-    const FindmodalImg = (id, img, tags) => {
-        setModalImg({ id, img, tags });
+    const FindmodalImg = (id, img, tags, user) => {
+        setModalImg({ id, img, tags, user });
     };
 
     const toggleModal = () => {
@@ -91,7 +91,7 @@ export default function App() {
 
             {status === "resolved" && <Button onClick={buttonLoadMore}></Button>}
 
-            {modal && <Modal closeModal={toggleModal} modalImg={modalImg} />}
+            {modal && <Modal closeModal={toggleModal} modalImg={modalImg}/>}
 
         </>
     );

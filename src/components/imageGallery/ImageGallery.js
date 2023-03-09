@@ -7,7 +7,7 @@ import { ImageGalleryContainer } from './ImageGalleryStyles';
 export default function ImageGallery({ response, toggleModal, onImageClick }) {
   return (
     <ImageGalleryContainer>
-      {response.map(({ id, webformatURL, tags, largeImageURL, likes, views, comments, downloads }) => (
+      {response.map(({ id, webformatURL, tags, largeImageURL, likes, views, comments, downloads, user }) => (
         <ImageGalleryItem
           key={id}
           id={id}
@@ -18,7 +18,7 @@ export default function ImageGallery({ response, toggleModal, onImageClick }) {
           comments={comments}
           downloads={downloads}
           toggleModal={() => toggleModal()}
-          onImageClick={() => onImageClick(id, largeImageURL, tags)}
+          onImageClick={() => onImageClick(id, largeImageURL, tags, user)}
         />
       ))}
     </ImageGalleryContainer>

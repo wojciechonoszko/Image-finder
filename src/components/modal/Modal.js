@@ -9,8 +9,9 @@ import CloseIcon from '@mui/icons-material/Close';
 const modalRoot = document.querySelector("#modal-root");
 
 export default function Modal({ closeModal, modalImg }) {
-    const { img, tags, id } = modalImg;
-
+    
+    const { img, tags, id, user } = modalImg;
+    console.log(user);
     useEffect(() => {
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
@@ -35,9 +36,10 @@ export default function Modal({ closeModal, modalImg }) {
     return createPortal(
         <Overlay onClick={backDropClick}>
             <div className="Modal">
+                <p>Author: {user}</p>
                 <img src={img} alt={tags} key={id} />
-            </div>
             <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary"/>
+            </div>
         </Overlay>,
         modalRoot
     );
@@ -47,6 +49,7 @@ export default function Modal({ closeModal, modalImg }) {
 Modal.propTypes = {
     closeModal: PropTypes.func.isRequired,
     modalImg: PropTypes.object.isRequired,
+    user: PropTypes.string.isRequired,
   };
 
 
