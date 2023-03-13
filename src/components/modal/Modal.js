@@ -1,5 +1,5 @@
 import React from 'react';
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {Overlay} from './ModalStyles';
 import { createPortal } from "react-dom";
 import PropTypes from 'prop-types';
@@ -21,6 +21,7 @@ export default function Modal({ closeModal, modalImg }) {
         return () => window.removeEventListener("keydown", handleKeyDown);
     });
     
+    const [buttonText, setButtonText] = useState("Copy Image");
 
     const handleKeyDown = e => {
         if (e.code === "Escape") {
@@ -50,6 +51,7 @@ export default function Modal({ closeModal, modalImg }) {
                 })
                 .then(() => {
                     console.log('Image Copied')
+                    setButtonText("Copied");
                 })
                 .catch((e) => {
                     console.log('Error: ', e.message)
@@ -62,7 +64,7 @@ export default function Modal({ closeModal, modalImg }) {
             <div className="Modal">
                 <p>Author: {user}</p>
                 <img src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" />
-                <button className="copy-button" onClick={ handleCopyImage }>Copy Image</button>
+                <button className="CopyButton" onClick={ handleCopyImage }>{buttonText}</button>
             <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary"/>
             </div>
         </Overlay>,
