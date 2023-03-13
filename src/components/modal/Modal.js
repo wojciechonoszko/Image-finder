@@ -1,10 +1,13 @@
 import React from 'react';
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import {Overlay} from './ModalStyles';
 import { createPortal } from "react-dom";
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
-import ClipboardJS from 'clipboard';
+import {
+    getBlobFromImageElement,
+    copyBlobToClipboard,
+} from 'copy-image-clipboard'
 
 
 const modalRoot = document.querySelector("#modal-root");
@@ -34,21 +37,32 @@ export default function Modal({ closeModal, modalImg }) {
     const handleModalClose = () => {
         closeModal();
     }
+    const imageRef = useRef(null);
+    
+    const handleCopyImage = () => {
+
+        const imageElement = imageRef.current;
+        if (imageElement) {
+            getBlobFromImageElement(imageElement)
+                .then((blob) => {
+                    console.log(blob);
+                    return copyBlobToClipboard(blob)
+                })
+                .then(() => {
+                    console.log('Image Copied')
+                })
+                .catch((e) => {
+                    console.log('Error: ', e.message)
+                })
+        }
+    }
    
-    
-    useEffect(() => {
-        const clipboard = new ClipboardJS('.copy-button');
-        return () => clipboard.destroy();
-    }, []);
-
-    
-
     return createPortal(
         <Overlay onClick={backDropClick}>
             <div className="Modal">
                 <p>Author: {user}</p>
-                <img src={img} alt={tags} key={id}/>
-                <button className="copy-button" data-clipboard-text={img}>Copy Image</button>
+                <img src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" />
+                <button className="copy-button" onClick={ handleCopyImage }>Copy Image</button>
             <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary"/>
             </div>
         </Overlay>,
@@ -96,3 +110,4 @@ Modal.propTypes = {
 // };
 
 // export default Modal;
+
