@@ -20,6 +20,12 @@ export const Overlay = styled.div`
     justify-content: center;
     align-items: center;
   }
+  .CopyButton{
+    color: white;
+    background-color: black;
+    border-radius: 10px;
+    cursor: pointer;kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk
+  }
   p {
     color: white;
 font-family:Helvetica, sans-serif;
@@ -38,5 +44,6 @@ letter-spacing:0.2em;
     border: 1px solid #3f5efb;
     border-radius: 20px;
   }
+  
   
 `;
