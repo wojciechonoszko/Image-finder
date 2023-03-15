@@ -27,14 +27,22 @@ export default function App() {
         setStatus("pending");
         fetchGallery(inputQuerry, page)
             .then((data) => {
-                console.log(data.hits[10].user);
-
-                Notify.success(`Hoorray! Displaying ${18 * page} out of ${data.total} images`, {
-                    position: "center-center",
-                    fontSize: "24px",
-                    timeout: 1500,
-                    width: "80vw",
-                });
+                // console.log(data.hits[10].user);
+                if (data.total < 18 && data.total > 0) {
+                    Notify.success(`Hoorray! Displaying ${data.total} images`, {
+                        position: "center-center",
+                        fontSize: "24px",
+                        timeout: 1500,
+                        width: "80vw",
+                    });
+                } else {
+                    Notify.success(`Hoorray! Displaying ${18 * page} out of ${data.total} images`, {
+                        position: "center-center",
+                        fontSize: "24px",
+                        timeout: 1500,
+                        width: "80vw",
+                    });
+                }
 
 
                 return data.hits;
