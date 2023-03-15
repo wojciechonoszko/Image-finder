@@ -27,7 +27,6 @@ export default function App() {
         setStatus("pending");
         fetchGallery(inputQuerry, page)
             .then((data) => {
-                // console.log(data.hits[10].user);
                 if (data.total < 18 && data.total > 0) {
                     Notify.success(`Hoorray! Displaying ${data.total} images`, {
                         position: "center-center",

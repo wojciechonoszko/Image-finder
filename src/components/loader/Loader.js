@@ -1,17 +1,4 @@
-// import {Audio} from 'react-loader-spinner';
-// export const MyLoader = () => {
-//     return (
-//       <Audio
-//       height="100"
-//       width="100"
-//       color='pink'
-//       ariaLabel='loading'
-//       margin-left='50px'
-//     />
-//     );
-// };
 
-//npm install --save react-spinners
 
 import ClimbingBoxLoader from "react-spinners/ClimbingBoxLoader";
 import { css } from "@emotion/react";
