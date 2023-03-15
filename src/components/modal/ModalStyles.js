@@ -13,6 +13,7 @@ export const Overlay = styled.div`
   align-items: center;
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
+  cursor: pointer;
   .Modal {
     width: 90%;
     display: flex;
@@ -50,8 +51,8 @@ font-size:1.3em;
 letter-spacing:0.2em;
   }
 
-  img {
-    max-height: 80%;
+  .ModalImage {
+    max-height: 60%;
   }
   .CloseIcon {
     color: #fff;
@@ -69,6 +70,40 @@ letter-spacing:0.2em;
     border-radius: 30px;
     background-color: rgba(13, 12, 12, 0.9);
   }
+
+  .FullScreenImage {
+  position: fixed;
+  // top: 0;
+  // left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.FullScreenImage img {
+  max-width: 100%;
+  max-height: 100%;
+}
   
   
 `;
+
+export const FullScreenOverlay = styled.div`
+position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  // height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 2;
+  cursor: pointer;
+`

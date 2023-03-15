@@ -1,13 +1,13 @@
 import React from 'react';
 import { useEffect, useRef, useState } from "react";
-import {Overlay} from './ModalStyles';
+import {Overlay, FullScreenOverlay} from './ModalStyles';
 import { createPortal } from "react-dom";
 import PropTypes from 'prop-types';
 import CloseIcon from '@mui/icons-material/Close';
 import {
     getBlobFromImageElement,
     copyBlobToClipboard,
-} from 'copy-image-clipboard'
+} from 'copy-image-clipboard';
 
 
 const modalRoot = document.querySelector("#modal-root");
@@ -20,8 +20,10 @@ export default function Modal({ closeModal, modalImg }) {
         window.addEventListener("keydown", handleKeyDown);
         return () => window.removeEventListener("keydown", handleKeyDown);
     });
-    
+
+    const [isFullscreen, setIsFullscreen] = useState(false);
     const [buttonText, setButtonText] = useState("Copy Image");
+    const [showFullScreen, setShowFullScreen] = useState(false);
 
     const handleKeyDown = e => {
         if (e.code === "Escape") {
@@ -58,60 +60,128 @@ export default function Modal({ closeModal, modalImg }) {
                 })
         }
     }
-   
-    return createPortal(
-        <Overlay onClick={backDropClick}>
-            <div className="Modal">
-                <p>Author: {user}</p>
-                <img src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" />
-            <div className="ModalButtons">
-            <button className="CopyButton" onClick={ handleCopyImage }>{buttonText}</button>
-                    <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary" />
-                </div>
-            </div>
-        </Overlay>,
-        modalRoot
-    );
 
+//     const handleFullScreen = () => {
+//         const imageElement = imageRef.current;
+//         if (imageElement) {
+//             imageElement.requestFullscreen();
+//             setIsFullscreen(true);
+//         }
+//     }
+
+//     const handleExitFullScreen = () => {
+//         if (isFullscreen) {
+//             document.exitFullscreen();
+//             setIsFullscreen(false);
+//         }
+//     }
+
+   
+   
+//     return createPortal(
+//         <>
+//             {isFullscreen && (
+
+//                 <div className="FullScreenImage" onClick={handleExitFullScreen}>
+//                     <img src={img} alt={tags} />
+//                 </div>
+                
+//             )}
+//             {!isFullscreen && (
+//                 <Overlay onClick={backDropClick}>
+
+//                     <div className="Modal">
+//                         <p>Author: {user}</p>
+//                         <img className="ModalImage" src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" onClick={handleFullScreen} />
+//                         <div className="ModalButtons">
+//                             <button className="CopyButton" onClick={handleCopyImage}>{buttonText}</button>
+//                             <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary" />
+//                         </div>
+//                     </div>
+//                 </Overlay>
+//             )}
+//         </>,
+            
+//         modalRoot
+//     )
+// }
+
+
+
+// Modal.propTypes = {
+//     closeModal: PropTypes.func.isRequired,
+//     modalImg: PropTypes.object.isRequired,
+//     user: PropTypes.string.isRequired,
+//   };
+
+
+    const handleFullScreen = () => {
+        const imageElement = imageRef.current;
+        if (imageElement) {
+            imageElement.requestFullscreen();
+            setIsFullscreen(true);
+            setShowFullScreen(true);
+        }
+    }
+
+    const handleExitFullScreen = () => {
+        if (isFullscreen) {
+            document.exitFullscreen();
+            setIsFullscreen(false);
+            setShowFullScreen(false);
+        }
+    }
+
+    return createPortal(
+        <>
+            {!showFullScreen && (
+                <Overlay onClick={backDropClick}>
+                    <div className="Modal">
+                        <p>Author: {user}</p>
+                        <img
+                            className="ModalImage"
+                            src={img}
+                            alt={tags}
+                            key={id}
+                            id="image"
+                            ref={imageRef}
+                            crossOrigin="anonymous"
+                            onClick={handleFullScreen}
+                        />
+                        <div className="ModalButtons">
+                            <button className="CopyButton" onClick={handleCopyImage}>
+                                {buttonText}
+                            </button>
+                            <CloseIcon
+                                onClick={handleModalClose}
+                                className="CloseIcon"
+                                color="primary"
+                            />
+                        </div>
+                    </div>
+                </Overlay>
+            )}
+
+            {showFullScreen && (
+                <FullScreenOverlay onClick={handleExitFullScreen}>
+                    <img
+                        className="FullScreenImage"
+                        src={img}
+                        alt={tags}
+                        key={id}
+                        id="image"
+                        ref={imageRef}
+                        crossOrigin="anonymous"
+                    />
+                </FullScreenOverlay>
+            )}
+        </>,
+        modalRoot
+    )
 }
 
 Modal.propTypes = {
     closeModal: PropTypes.func.isRequired,
     modalImg: PropTypes.object.isRequired,
     user: PropTypes.string.isRequired,
-  };
-
-
-// class Modal extends Component {
-//     componentDidMount() {
-//         window.addEventListener('keydown', this.onKeyDown);
-//     }
-    
-//     componentWillUnmount() {
-//         window.removeEventListener('keydown', this.onKeyDown);
-//     }
-
-//     onKeyDown = event => {
-//         if (event.key === 'Escape') {
-//             this.props.closeModal();
-//         }
-//     };
-
-//     render() {
-//         return (
-//             <Overlay onClick={this.props.closeModal}>
-//                 <div className="Modal">
-//                     <img src={this.props.largeImageURL} alt="" />
-//                 </div>
-//             </Overlay>
-//         );
-//     }
-// }
-
-// Modal.propTypes = {
-//     closeModal: PropTypes.func.isRequired,
-//     largeImageURL: PropTypes.string.isRequired
-// };
-
-// export default Modal;
-
+};
