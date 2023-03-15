@@ -61,58 +61,6 @@ export default function Modal({ closeModal, modalImg }) {
         }
     }
 
-//     const handleFullScreen = () => {
-//         const imageElement = imageRef.current;
-//         if (imageElement) {
-//             imageElement.requestFullscreen();
-//             setIsFullscreen(true);
-//         }
-//     }
-
-//     const handleExitFullScreen = () => {
-//         if (isFullscreen) {
-//             document.exitFullscreen();
-//             setIsFullscreen(false);
-//         }
-//     }
-
-   
-   
-//     return createPortal(
-//         <>
-//             {isFullscreen && (
-
-//                 <div className="FullScreenImage" onClick={handleExitFullScreen}>
-//                     <img src={img} alt={tags} />
-//                 </div>
-                
-//             )}
-//             {!isFullscreen && (
-//                 <Overlay onClick={backDropClick}>
-
-//                     <div className="Modal">
-//                         <p>Author: {user}</p>
-//                         <img className="ModalImage" src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" onClick={handleFullScreen} />
-//                         <div className="ModalButtons">
-//                             <button className="CopyButton" onClick={handleCopyImage}>{buttonText}</button>
-//                             <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary" />
-//                         </div>
-//                     </div>
-//                 </Overlay>
-//             )}
-//         </>,
-            
-//         modalRoot
-//     )
-// }
-
-
-
-// Modal.propTypes = {
-//     closeModal: PropTypes.func.isRequired,
-//     modalImg: PropTypes.object.isRequired,
-//     user: PropTypes.string.isRequired,
-//   };
 
 
     const handleFullScreen = () => {

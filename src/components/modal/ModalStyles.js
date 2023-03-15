@@ -98,12 +98,12 @@ position: fixed;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 100%;
-  // height: 90%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.8);
+  height: 100%;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
+  // background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   cursor: pointer;
 `

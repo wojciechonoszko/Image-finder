@@ -26,37 +26,38 @@ export default function App() {
         }
         setStatus("pending");
         fetchGallery(inputQuerry, page)
-        .then((data) => {
-            console.log(data.hits[10].user);
-            
-                Notify.success(`Hoorray! Displaying ${18*page} out of ${data.total} images`, {
+            .then((data) => {
+                console.log(data.hits[10].user);
+
+                Notify.success(`Hoorray! Displaying ${18 * page} out of ${data.total} images`, {
                     position: "center-center",
                     fontSize: "24px",
-                    timeout: 2500,
-                    width: "30%",
+                    timeout: 1500,
+                    width: "80vw",
                 });
 
-            
-            return data.hits ;
-        })
-        
+
+                return data.hits;
+            })
+
             .then((response) => {
-                if (response.length === 0) {
+                if (!response || response.length === 0) {
                     Notify.failure("Sorry, we couldn't find any matches", {
                         position: "center-center",
                         fontSize: "24px",
-                        timeout: 2500,
-                        width: "30%",
+                        timeout: 1500,
+                        width: "80vw",
                     });
                     setStatus("idle");
                     Loading.remove();
-                } else {
                     
+                } else {
+
                     setGallery((prevState) => [...prevState, ...response]);
                     setStatus("resolved");
                 }
             })
-            
+
     }, [page, inputQuerry]);
 
     const onSubmitForm = (inputQuerry) => {
@@ -79,7 +80,7 @@ export default function App() {
     return (
         <>
             <Searchbar onSubmit={onSubmitForm}>
-                
+
             </Searchbar>
             {status === "pending" && Loading.pulse()}
             {status === "resolved" && Loading.remove(apiDelay)}
@@ -91,7 +92,7 @@ export default function App() {
 
             {status === "resolved" && <Button onClick={buttonLoadMore}></Button>}
 
-            {modal && <Modal closeModal={toggleModal} modalImg={modalImg}/>}
+            {modal && <Modal closeModal={toggleModal} modalImg={modalImg} />}
 
         </>
     );
