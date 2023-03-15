@@ -64,8 +64,10 @@ export default function Modal({ closeModal, modalImg }) {
             <div className="Modal">
                 <p>Author: {user}</p>
                 <img src={img} alt={tags} key={id} id="image" ref={imageRef} crossOrigin="anonymous" />
-                <button className="CopyButton" onClick={ handleCopyImage }>{buttonText}</button>
-            <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary"/>
+            <div className="ModalButtons">
+            <button className="CopyButton" onClick={ handleCopyImage }>{buttonText}</button>
+                    <CloseIcon onClick={handleModalClose} className="CloseIcon" color="primary" />
+                </div>
             </div>
         </Overlay>,
         modalRoot
