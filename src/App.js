@@ -31,14 +31,14 @@ export default function App() {
                     Notify.success(`Hoorray! Displaying ${data.total} images`, {
                         position: "center-center",
                         fontSize: "24px",
-                        timeout: 1500,
+                        timeout: 2500,
                         width: "80vw",
                     });
-                } else {
+                } else if (data.total >= 18) {
                     Notify.success(`Hoorray! Displaying ${18 * page} out of ${data.total} images`, {
                         position: "center-center",
                         fontSize: "24px",
-                        timeout: 1500,
+                        timeout: 2500,
                         width: "80vw",
                     });
                 }
@@ -52,7 +52,7 @@ export default function App() {
                     Notify.failure("Sorry, we couldn't find any matches", {
                         position: "center-center",
                         fontSize: "24px",
-                        timeout: 1500,
+                        timeout: 2500,
                         width: "80vw",
                     });
                     setStatus("idle");

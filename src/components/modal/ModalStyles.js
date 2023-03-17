@@ -5,8 +5,8 @@ export const Overlay = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 700px;
-  height: 700px;
+  width: 90%;
+  height: 90%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,7 +52,22 @@ letter-spacing:0.2em;
   }
 
   .ModalImage {
-    max-height: 60%;
+    height: 30vh;
+  }
+  @media screen and (min-width: 1200px) {
+  .ModalImage {
+    height: 60vh;
+  }
+}
+  @media screen and (min-width: 600px) {
+  .ModalImage {
+    height: 50vh;
+  }
+}
+  @media screen and (max-width: 400px) {
+  .ModalImage {
+    max-height: 70vw;
+  }
   }
   .CloseIcon {
     color: #fff;
@@ -71,23 +86,7 @@ letter-spacing:0.2em;
     background-color: rgba(13, 12, 12, 0.9);
   }
 
-  .FullScreenImage {
-  position: fixed;
-  // top: 0;
-  // left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
-  z-index: 999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.FullScreenImage img {
-  max-width: 100%;
-  max-height: 100%;
-}
+  
   
   
 `;
@@ -99,11 +98,22 @@ position: fixed;
   transform: translate(-50%, -50%);
   width: 100%;
   height: 100%;
-  // display: flex;
-  // flex-direction: column;
-  // justify-content: center;
-  // align-items: center;
-  // background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
   z-index: 2;
   cursor: pointer;
+
+  .FullScreenImage {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
 `

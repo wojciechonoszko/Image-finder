@@ -27,8 +27,9 @@ background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79
  margin-top: 5px;
     width: 450px;
     height: auto;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 0px;
     
     background-color: white;
     box-shadow: (0,0,0,0.35) 0px 5px 15px;
@@ -38,6 +39,8 @@ background: radial-gradient(circle, rgba(233,219,222,1) 4%, rgba(63,94,251,1) 79
     color: black;
     .SuggestionList {
       list-style: none;
+      padding: 0px;
+      margin-left: 30px;
     }
     .SuggestionList__item:hover {
       cursor: pointer;
@@ -105,13 +108,3 @@ export const SearchForm = styled.form`
   }
 `;
 
-export const SuggestionList = styled.ul`
-list-style: none;
-li {
-      list-style: none;
-
-    }
-ul {
-  list-style: none;
-}
-`

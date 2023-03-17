@@ -21,6 +21,8 @@ export default function Modal({ closeModal, modalImg }) {
         return () => window.removeEventListener("keydown", handleKeyDown);
     });
 
+    
+
     const [isFullscreen, setIsFullscreen] = useState(false);
     const [buttonText, setButtonText] = useState("Copy Image");
     const [showFullScreen, setShowFullScreen] = useState(false);

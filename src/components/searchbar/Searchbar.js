@@ -39,6 +39,7 @@ function Searchbar({ onSubmit }) {
 
     const handleSuggestionClick = (suggestion) => {
         setInputQuery(suggestion);
+        onSubmit(suggestion);
         setSuggestions([]);
     };
 
