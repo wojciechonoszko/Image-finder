@@ -2,7 +2,6 @@ import React from 'react';
 import { Notify } from "notiflix/build/notiflix-notify-aio";
 import { Loading } from "notiflix/build/notiflix-loading-aio";
 import { useState, useEffect } from "react";
-// import {MyLoader} from './components/loader/Loader';
 import { fetchGallery } from './Api';
 import Button from './components/button/Button';
 import ImageGallery from './components/imageGallery/ImageGallery';

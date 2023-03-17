@@ -85,10 +85,6 @@ letter-spacing:0.2em;
     border-radius: 30px;
     background-color: rgba(13, 12, 12, 0.9);
   }
-
-  
-  
-  
 `;
 
 export const FullScreenOverlay = styled.div`
